@@ -1,3 +1,4 @@
+const { getUserIdFromToken } = require("../config/jwtProvider");
 const User = require("../models/userModel");
 const bcrypt = require("bcrypt");
 
@@ -47,6 +48,27 @@ module.exports = {
                 throw new Error("User not found.");
             }
             return user;
+        } catch (error) {
+            throw new Error(error.message);
+        }
+    },
+
+    async findUserProfileByJwt(jwt){
+        try {
+            const userId = getUserIdFromToken(jwt);
+            const user = await User.findById(userId);
+            
+            return user;
+        } catch (error) {
+            throw new Error(error.message);
+        }
+    },
+
+    async findAllUsers(){
+        try {
+            const users = await User.find();
+
+            return users;
         } catch (error) {
             throw new Error(error.message);
         }
