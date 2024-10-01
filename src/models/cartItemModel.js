@@ -1,14 +1,14 @@
 const mongoose = require('mongoose');
 
 const CartItemSchema = new mongoose.Schema({
-    cart: [{
+    cart: {
         type: mongoose.Schema.Types.ObjectId,
         ref: "Cart",
-    }],
-    food:  [{
+    },
+    food:  {
         type: mongoose.Schema.Types.ObjectId,
         ref: "Food",
-    }],
+    },
     quantity: Number,
     ingredients: [String],
     totalPrice: Number,

@@ -1,17 +1,17 @@
 const mongoose = require('mongoose');
 
 const RestaurantSchema = new mongoose.Schema({
-    owner: [{
+    owner: {
         type: mongoose.Schema.Types.ObjectId,
         ref: "User",
-    }],
+    },
     name: String,
     description: String,
     cuisineType: String,
-    address: [{
+    address: {
         type: mongoose.Schema.Types.ObjectId,
         ref: "Address",
-    }],
+    },
     contactInformation: {},
     openingHours: String,
     orders: [{
