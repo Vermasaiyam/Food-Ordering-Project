@@ -16,10 +16,10 @@ const FoodSchema = new mongoose.Schema({
     },
     isVegetarian: Boolean,
     isSeasonal: Boolean,
-    ingredients:  {
+    ingredients: [ {
         type: mongoose.Schema.Types.ObjectId,
         ref: "IngredientsItem",
-    },
+    }],
     creationDate: {
         type: Date,
         default: Date.now,
