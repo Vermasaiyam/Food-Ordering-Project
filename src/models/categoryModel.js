@@ -8,6 +8,6 @@ const CategorySchema = new mongoose.Schema({
     },
 })
 
-const Category = mongoose.model('CartItem', CategorySchema);
+const Category = mongoose.model('Category', CategorySchema);
 
 module.exports = Category;
